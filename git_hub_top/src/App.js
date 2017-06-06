@@ -10,6 +10,7 @@ class App extends Component {
           <h2>The Top Github Repos </h2>
         </div>
         <p className="App-intro">
+          This is a JS app built on react to query the top Github repos using the Github v4 GraphQL API.
         </p>
       </div>
     );

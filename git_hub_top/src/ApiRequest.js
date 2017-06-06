@@ -10,8 +10,20 @@ class ApiRequest extends Component {
   }
 
   queryAPI(e) {
+    var github = new Api();
 
-
+    github.query(`
+    {
+        viewer {
+            login
+            name
+        }
+    }
+    `, null, (res, err) => {
+        this.setState( {
+            response: JSON.stringify(res, null, 2)
+        });
+    });
   }
 
 

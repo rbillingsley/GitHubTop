@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import config from './config.js';
+import ApiRequest from './ApiRequest.js'
 
 class App extends Component {
   render() {
@@ -12,6 +12,7 @@ class App extends Component {
         <p className="App-intro">
           This is a JS app built on react to query the top Github repos using the Github v4 GraphQL API.
         </p>
+        <ApiRequest/>
       </div>
     );
   }

@@ -27,13 +27,7 @@ class Api {
         console.log(req);
         if(callback) {
             request.post(req, (error, response, body) => {
-                var parsed;
-                var message;
-                if (body) {
-                    parsed = JSON.parse(body);
-                    message = parsed.message || parsed.errors;
-                }
-                callback(message ? undefined : parsed, error || message);
+                callback(body);
             })
         }
     }

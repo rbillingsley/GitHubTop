@@ -60,7 +60,7 @@ export default class Api{
     for(var i = 0; i < repoArray.length; i++)
     {
         var node = parsed.data.search.edges[i].node;
-        repoArray[i] = (<Repo count={node.stargazers.totalCount} name={node.nameWithOwner} description={node.description} created={node.createdAt} address={node.projectsUrl}/>)
+        repoArray[i] = (<Repo key={i} count={node.stargazers.totalCount} name={node.nameWithOwner} description={node.description} created={node.createdAt} address={node.projectsUrl}/>)
     }
 
     callback(repoArray);

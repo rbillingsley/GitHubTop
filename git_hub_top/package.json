@@ -5,6 +5,7 @@
   "dependencies": {
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "react-relay": "^1.0.0",
     "request": "2.79.0"
   },
   "devDependencies": {

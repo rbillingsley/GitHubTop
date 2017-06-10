@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
 import Api from './Api.js'
-import Repo from './Repo.js';
+import RepoList, { Repo } from './Repo.js';
 
 export default class App extends Component {
     constructor() {
     super();
     this.state = {
       //mock data for designing
-        repos: Array(1).fill( <Repo count="0 :(" name="rbillingsley/GitHubTop" created="06/06/2017" description="A JS app built on React that queries the top Github repositories using the Github v4 GraphQL API." address="https://github.com/rbillingsley/GitHubTop"/>)
+        repos: Array(1).fill( <Repo key="0" count="0 :(" name="rbillingsley/GitHubTop" created="06/06/2017" description="A JS app built on React that queries the top Github repositories using the Github v4 GraphQL API." address="https://github.com/rbillingsley/GitHubTop"/>)
     };   
     this.handleClick = this.handleClick.bind(this);
   }
@@ -24,14 +24,6 @@ export default class App extends Component {
     });
   }
 
-//this.state.repos causes a warning, so a better way of rendering a dynamic array of jsx elements
-  renderRepos() {
-    console.log("Rendering repo list");
-    this.state.repos.forEach(function(element) {
-        return element;
-    }, this);
-  }
-
   render() {
     return (
       <div className="App">
@@ -42,7 +34,7 @@ export default class App extends Component {
           This is a JS app built on React to query the top Github repositories using the Github v4 GraphQL API.
         </p>
         <button onClick={this.handleClick}>Query API!</button>
-        {this.state.repos}
+        <RepoList repo_list={this.state.repos}/>
       </div>
     );
   }

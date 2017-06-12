@@ -8,7 +8,15 @@ export default class App extends Component {
     super();
     this.state = {
       //mock data for designing
-        repos: Array(1).fill( <Repo key="0" count="0 :(" name="rbillingsley/GitHubTop" created="06/06/2017" description="A JS app built on React that queries the top Github repositories using the Github v4 GraphQL API." address="https://github.com/rbillingsley/GitHubTop"/>)
+        repos: Array(1).fill( <Repo
+                                key="0" 
+                                count="0" 
+                                name="rbillingsley/GitHubTop" 
+                                created="06/06/2017" 
+                                description="A JS app built on React that queries the top Github repositories using the Github v4 GraphQL API." 
+                                address="https://github.com/rbillingsley/GitHubTop" 
+                                language="JavaScript"/>
+                                )
     };   
     this.handleClick = this.handleClick.bind(this);
   }
@@ -33,7 +41,7 @@ export default class App extends Component {
         <p className="App-intro">
           This is a JS app built on React to query the top Github repositories using the Github v4 GraphQL API.
         </p>
-        <button onClick={this.handleClick}>Query API!</button>
+        <button className="App-query-button" onClick={this.handleClick}>Query API</button>
         <RepoList repo_list={this.state.repos}/>
       </div>
     );

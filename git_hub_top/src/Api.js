@@ -25,6 +25,9 @@ export default class Api{
             description
             createdAt
             projectsUrl
+            primaryLanguage{
+                name
+            }
             }
         }
         }
@@ -59,8 +62,25 @@ export default class Api{
     var repoArray = Array(10).fill(null)
     for(var i = 0; i < repoArray.length; i++)
     {
+        //all this needs to be null checked.
+
         var node = parsed.data.search.edges[i].node;
-        repoArray[i] = (<Repo key={i} count={node.stargazers.totalCount} name={node.nameWithOwner} description={node.description} created={node.createdAt} address={node.projectsUrl}/>)
+        var language = "No primary language specified."
+
+        if(node.primaryLanguage != null)
+        {
+            language = node.primaryLanguage.name;
+        }
+
+        repoArray[i] = (<Repo 
+                            key={i} 
+                            count={node.stargazers.totalCount} 
+                            name={node.nameWithOwner} 
+                            description={node.description} 
+                            created={node.createdAt} 
+                            address={node.projectsUrl}
+                            language={language}
+                            />)
     }
 
     callback(repoArray);

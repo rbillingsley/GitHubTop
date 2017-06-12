@@ -6,7 +6,15 @@ export default class RepoList extends Component {
     return (
       <div className="RepoList">
         {this.props.repo_list.map(( node =>
-        <Repo className="Repo" key={node.key} count={node.props.count} name={node.props.name} created={node.props.created} description={node.props.description} address={node.props.address}/>
+        <Repo
+          className="Repo" 
+          key={node.key} 
+          count={node.props.count} 
+          name={node.props.name} 
+          created={node.props.created} 
+          description={node.props.description} 
+          address={node.props.address} 
+          language={node.props.language}/>
         ))}
       </div>
     )
@@ -18,41 +26,41 @@ export class Repo extends Component {
     return (
       <div className="Repo">
         <Count text={this.props.count}/>
-        <Name text={this.props.name}/>
+        <Name text={this.props.name} link={this.props.address}/>
         <Description text={this.props.description}/>
         <Created text={this.props.created}/>
-        <Address text={this.props.address}/>
+        <Language text={this.props.language}/>
       </div>
     )
   }
 }
 
-export class Count extends Component {
+export class Name extends Component {
   render(props) {
-    return <h2 className="Repo-count">{"Stars: " + this.props.text}</h2>;
+    return <a className="Repo-name" href={this.props.link}>{this.props.text}</a>;
   }
 }
 
-export class Name extends Component {
+export class Count extends Component {
   render(props) {
-    return <h1 className="Repo-name">{"Repo Name: " + this.props.text}</h1>;
+    return <h2 className="Repo-count">{this.props.text}</h2>;
   }
 }
 
 export class Description extends Component {
   render(props) {
-    return <p className="Repo-description">{"Description: " + this.props.text}</p>;
+    return <p className="Repo-description">{this.props.text}</p>;
   }
 }
 
 export class Created extends Component {
   render(props) {
-    return <h2 className="Repo-created">{"Created: " + this.props.text}</h2>;
+    return <h2 className="Repo-created">{this.props.text}</h2>;
   }
 }
 
-export class Address extends Component {
+export class Language extends Component {
   render(props) {
-    return <a className="Repo-address" href={this.props.text}> {this.props.text} </a>;
+    return <h3 className="Repo-language">{this.props.text}</h3>;
   }
 }

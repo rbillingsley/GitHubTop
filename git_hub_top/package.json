@@ -3,6 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "chai": "^4.0.2",
+    "eslint": "^4.2.0",
+    "eslint-config-airbnb": "^15.0.2",
+    "mocha": "^3.4.2",
+    "prop-types": "^15.5.10",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-relay": "^1.0.0",

@@ -6,9 +6,11 @@
     "chai": "^4.0.2",
     "eslint": "^4.2.0",
     "eslint-config-airbnb": "^15.0.2",
+    "jsdom": "^11.1.0",
     "mocha": "^3.4.2",
     "prop-types": "^15.5.10",
     "react": "^15.5.4",
+    "react-addons-test-utils": "^15.6.0",
     "react-dom": "^15.5.4",
     "react-relay": "^1.0.0",
     "request": "^2.81.0"
@@ -19,7 +21,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "mocha -compilers js:babel-core/register -require ./test/test_helper.js \"test/*@(.js|.jsx)\" --watch-extensions jsx ",
     "eject": "react-scripts eject"
   }
 }

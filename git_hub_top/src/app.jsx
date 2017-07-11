@@ -9,14 +9,14 @@ export default class App extends Component {
     this.state = {
       repos: [],
     };
-    this.handleClick = this.handleClick.bind(this);
+    this.makeRequest = this.makeRequest.bind(this);
   }
 
   componentDidMount() {
-    this.handleClick();
+    this.makeRequest();
   }
 
-  handleClick() {
+  makeRequest() {
     const apiRequest = new Api();
     apiRequest.queryAPI((res) => {
       this.setState({
@@ -34,7 +34,7 @@ export default class App extends Component {
         <p className="App-intro">
           This is a JS app built on React to query the top Github repositories using the Github v4 GraphQL API.
         </p>
-        <button className="App-query-button" onClick={this.handleClick}>Query API</button>
+        <button className="App-query-button" onClick={this.makeRequest}>Query API</button>
         <div className="App-body">
           <RepoList repo_list={this.state.repos} />
         </div>

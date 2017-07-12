@@ -1,14 +1,12 @@
 import React from 'react';
 import request from 'request';
-
-import config from './config';
 import Repo from './repo';
 
 export default class Api {
   constructor() {
-    this.url = 'https://api.github.com/graphql';
-    this.token = config.token;
-    this.userAgent = 'github-graphql-test';
+    this.url = process.env.REACT_APP_API_URL;
+    this.token = process.env.REACT_APP_TOKEN;
+    this.userAgent = process.env.REACT_APP_USER_AGENT;
   }
 
   queryAPI(callback) {
@@ -50,12 +48,12 @@ export default class Api {
     req.body = JSON.stringify(body);
     if (callback) {
       request.post(req, (error, response, responseBody) => {
-        this.parseJSON(responseBody, callback);
+        Api.parseJSON(responseBody, callback);
       });
     }
   }
 
-  parseJSON(res, callback) {
+  static parseJSON(res, callback) {
     const parsed = JSON.parse(res);
     const repoArray = Array(10).fill(null);
     for (let i = 0; i < repoArray.length; i += 1) {

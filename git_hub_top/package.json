@@ -9,6 +9,7 @@
     "babel-register": "^6.24.1",
     "chai": "^4.0.2",
     "chai-enzyme": "^0.8.0",
+    "dotenv": "^4.0.0",
     "enzyme": "^2.9.1",
     "eslint": "^4.2.0",
     "eslint-config-airbnb": "^15.0.2",
@@ -29,7 +30,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "mocha -r babel-register -r ignore-styles -r jsdom-global/register",
+    "test": "mocha -r babel-register -r ignore-styles -r jsdom-global/register -r dotenv",
     "eject": "react-scripts eject"
   }
 }

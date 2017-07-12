@@ -35,21 +35,25 @@ export default class Api {
   }
 
   makeRequest(graphRequest, callback) {
-    const req = {};
-    req.url = this.url;
-    const headers = ({
-      'Content-type': 'application/json',
-      Authorization: `bearer ${this.token}`,
-      'User-Agent': this.userAgent,
-    });
-    req.headers = headers;
-    const body = {};
-    body.query = graphRequest.replace(/\n/g, '');
-    req.body = JSON.stringify(body);
-    if (callback) {
-      request.post(req, (error, response, responseBody) => {
-        Api.parseJSON(responseBody, callback);
+    if (this.url === undefined || this.token === undefined || this.userAgent === undefined) {
+      callback([]);
+    } else {
+      const req = {};
+      req.url = this.url;
+      const headers = ({
+        'Content-type': 'application/json',
+        Authorization: `bearer ${this.token}`,
+        'User-Agent': this.userAgent,
       });
+      req.headers = headers;
+      const body = {};
+      body.query = graphRequest.replace(/\n/g, '');
+      req.body = JSON.stringify(body);
+      if (callback) {
+        request.post(req, (error, response, responseBody) => {
+          Api.parseJSON(responseBody, callback);
+        });
+      }
     }
   }
 

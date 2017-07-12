@@ -3,8 +3,6 @@ import './app.css';
 import Api from './api';
 import RepoList from './repoList';
 
-require('dotenv').config();
-
 export default class App extends Component {
   constructor() {
     super();

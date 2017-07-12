@@ -30,7 +30,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "mocha -r babel-register -r ignore-styles -r jsdom-global/register -r dotenv",
+    "test": "mocha -r babel-register -r ignore-styles -r jsdom-global/register \"test/*@(.js|.jsx)\" --watch --watch-extensions jsx",
     "eject": "react-scripts eject"
   }
 }

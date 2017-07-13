@@ -13,6 +13,7 @@ export default class App extends Component {
   }
 
   componentDidMount() {
+    // Automatically request data from api once component has mounted.
     this.makeRequest();
   }
 

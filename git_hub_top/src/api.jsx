@@ -49,6 +49,8 @@ export default class Api {
       const body = {};
       body.query = graphRequest.replace(/\n/g, '');
       req.body = JSON.stringify(body);
+
+      // Should rewrite with Promise
       if (callback) {
         request.post(req, (error, response, responseBody) => {
           Api.parseJSON(responseBody, callback);
@@ -62,7 +64,6 @@ export default class Api {
     const repoArray = Array(10).fill(null);
     for (let i = 0; i < repoArray.length; i += 1) {
       // all this needs to be null checked.
-
       const node = parsed.data.search.edges[i].node;
       let language = 'No primary language specified.';
 

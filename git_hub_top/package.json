@@ -23,7 +23,7 @@
     "nyc": "^11.0.3",
     "prop-types": "^15.5.10",
     "react": "^15.5.4",
-    "react-dom": "^15.6.1",
+    "react-dom": "^16.0.1",
     "react-test-renderer": "^15.6.1",
     "request": "^2.81.0",
     "sinon": "^2.3.7"

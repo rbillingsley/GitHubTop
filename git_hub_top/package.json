@@ -26,7 +26,8 @@
     "react-dom": "^16.0.1",
     "react-test-renderer": "^15.6.1",
     "request": "^2.81.0",
-    "sinon": "^2.3.7"
+    "sinon": "^2.3.7",
+    "snyk": "^1.317.0"
   },
   "devDependencies": {
     "react-scripts": "1.0.7"
@@ -47,6 +48,9 @@
     "build": "react-scripts build",
     "test": "mocha -r babel-register -r ignore-styles -r jsdom-global/register \"test/*@(.js|.jsx)\" --watch --watch-extensions jsx",
     "coverage": "cross-env NODE_ENV=test nyc mocha -r babel-register -r ignore-styles -r jsdom-global/register \"test/*@(.js|.jsx)\"",
-    "eject": "react-scripts eject"
-  }
+    "eject": "react-scripts eject",
+    "snyk-protect": "snyk protect",
+    "prepare": "yarn run snyk-protect"
+  },
+  "snyk": true
 }

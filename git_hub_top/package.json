@@ -21,10 +21,10 @@
     "jsdom-global": "^3.0.2",
     "mocha": "^3.4.2",
     "nyc": "^11.0.3",
-    "prop-types": "^15.5.10",
-    "react": "^15.5.4",
+    "prop-types": "^15.6.2",
+    "react": "^16.5.0",
     "react-dom": "^16.0.1",
-    "react-test-renderer": "^15.6.1",
+    "react-test-renderer": "^16.5.0",
     "request": "^2.81.0",
     "sinon": "^2.3.7"
   },
